@@ -57,7 +57,7 @@ export default function ProductCard({
           <Link href={`/products/${product.id}`}>
             <img
               src={
-                `http://elsaket-store.atwebpages.com/backend/${product?.image?.[0]}` ||
+                `http://elsaket-store.atwebpages.com/backend/uploads/${product?.image?.[0]}` ||
                 "/placeholder.svg"
               }
               alt={product.name}

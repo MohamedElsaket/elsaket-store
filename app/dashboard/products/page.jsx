@@ -115,7 +115,7 @@ export default function page() {
       cell: ({ row }) => (
         <div className="relative lowercase w-10 h-10 rounded-md overflow-hidden group">
           <img
-            src={`http://elsaket-store.atwebpages.com/backend/${
+            src={`http://elsaket-store.atwebpages.com/backend/uploads/${
               row.getValue("image")[0]
             }`}
             alt="image"
