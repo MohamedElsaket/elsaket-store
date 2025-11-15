@@ -1,15 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 // https://elsaket.great-site.net
-// https://elsaket.great-site.net
 
 export const getAllProducts = createAsyncThunk(
   "products/getAllProduts",
   async () => {
     try {
-      const res = await fetch(
-        "https://elsaket.great-site.net/backend/endpoints/products.php"
-      );
+      const res = await fetch("/api/products.php");
       console.log(res);
       const data = await res.json();
       console.log(data);
@@ -23,9 +20,7 @@ export const getAllProducts = createAsyncThunk(
 export const getProductById = createAsyncThunk(
   "produsts/getProductById",
   async (id) => {
-    const res = await fetch(
-      `https://elsaket.great-site.net/backend/endpoints/products.php?product_id=${id}`
-    );
+    const res = await fetch(`/api/products.php?product_id=${id}`);
     const data = await res.json();
     // console.log(data);
     return data;

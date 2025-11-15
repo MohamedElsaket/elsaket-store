@@ -48,9 +48,7 @@ function ProductsContent() {
 
   useEffect(() => {
     const getCategories = async () => {
-      const res = await fetch(
-        "https://elsaket.great-site.net/backend/endpoints/categories.php"
-      );
+      const res = await fetch("/api/categories.php");
       const data = await res.json();
       // console.log(data);
       setCategories(data);

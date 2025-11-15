@@ -175,9 +175,7 @@ export default function page() {
   useEffect(() => {
     async function getOrders() {
       try {
-        const res = await fetch(
-          "https://elsaket.great-site.net/backend/endpoints/orders.php"
-        );
+        const res = await fetch("/api/orders.php");
         // console.log(res);
 
         const data = await res.json();
@@ -195,14 +193,11 @@ export default function page() {
   // console.log(orderId);
 
   async function handleSubmit() {
-    const res = await fetch(
-      "https://elsaket.great-site.net/backend/endpoints/orders.php",
-      {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: orderId, status }),
-      }
-    );
+    const res = await fetch("/api/orders.php", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: orderId, status }),
+    });
     const data = await res.json();
     // console.log(data);
 
@@ -212,14 +207,11 @@ export default function page() {
   }
 
   async function handleDelete() {
-    const res = await fetch(
-      "https://elsaket.great-site.net/backend/endpoints/orders.php",
-      {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: orderId }),
-      }
-    );
+    const res = await fetch("/api/orders.php", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: orderId }),
+    });
     const data = await res.json();
     // console.log(data);
 
@@ -231,9 +223,7 @@ export default function page() {
   async function getOrderItems(id) {
     setShowOrderItems(true);
 
-    const res = await fetch(
-      `https://elsaket.great-site.net/backend/endpoints/orders.php?id=${id}`
-    );
+    const res = await fetch(`/api/orders.php?id=${id}`);
     const data = await res.json();
     console.log(data.items);
     setOrderItems(data.items);

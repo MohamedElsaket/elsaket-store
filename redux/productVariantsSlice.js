@@ -3,9 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const getAllProductVariants = createAsyncThunk(
   "productVariants/getAllProductVariants",
   async () => {
-    const res = await fetch(
-      "https://elsaket.great-site.net/backend/endpoints/product_variants.php"
-    );
+    const res = await fetch("/api/product_variants.php");
     const data = await res.json();
     // console.log(data);
     return data;
@@ -15,9 +13,7 @@ export const getAllProductVariants = createAsyncThunk(
 export const getProductVariantsById = createAsyncThunk(
   "productVariants/getProductVariantsById",
   async (id) => {
-    const res = await fetch(
-      `https://elsaket.great-site.net/backend/endpoints/product_variants.php?product_id=${id}`
-    );
+    const res = await fetch(`/api/product_variants.php?product_id=${id}`);
     const data = await res.json();
     // console.log(data);
     return data;

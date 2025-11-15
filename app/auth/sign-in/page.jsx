@@ -43,14 +43,11 @@ export default function SignInPage() {
       setLoading(true);
 
       if (!showOTP) {
-        const res = await fetch(
-          "https://elsaket.great-site.net/backend/endpoints/auth.php?action=request_otp",
-          {
-            headers: { "Content-Type": "application/json" },
-            method: "POST",
-            body: JSON.stringify({ email }),
-          }
-        );
+        const res = await fetch("/api/auth.php?action=request_otp", {
+          headers: { "Content-Type": "application/json" },
+          method: "POST",
+          body: JSON.stringify({ email }),
+        });
         const data = await res.json();
         console.log(data);
 
@@ -61,14 +58,11 @@ export default function SignInPage() {
           toast.error(data.message);
         }
       } else {
-        const res = await fetch(
-          "https://elsaket.great-site.net/backend/endpoints/auth.php?action=verify_otp",
-          {
-            headers: { "Content-Type": "application/json" },
-            method: "POST",
-            body: JSON.stringify({ email, otp }),
-          }
-        );
+        const res = await fetch("/api/auth.php?action=verify_otp", {
+          headers: { "Content-Type": "application/json" },
+          method: "POST",
+          body: JSON.stringify({ email, otp }),
+        });
         const data = await res.json();
         console.log(data);
 

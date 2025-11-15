@@ -28,14 +28,11 @@ export default function OTPVerificationModal({
     console.log(email, otp);
 
     try {
-      const res = await fetch(
-        "https://elsaket.great-site.net/backend/endpoints/auth.php?action=verify_otp",
-        {
-          headers: { "Content-Type": "application/json" },
-          method: "POST",
-          body: JSON.stringify({ email, otp }),
-        }
-      );
+      const res = await fetch("/api/auth.php?action=verify_otp", {
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        body: JSON.stringify({ email, otp }),
+      });
       console.log(res);
 
       const data = await res.json();
@@ -56,21 +53,18 @@ export default function OTPVerificationModal({
           });
 
           try {
-            await fetch(
-              "https://elsaket.great-site.net/backend/endpoints/auth.php?action=update_info",
-              {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  name,
-                  email,
-                  phone,
-                  address,
-                  city,
-                  country,
-                }),
-              }
-            );
+            await fetch("/api/auth.php?action=update_info", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                name,
+                email,
+                phone,
+                address,
+                city,
+                country,
+              }),
+            });
           } catch (error) {
             console.error(error);
           }

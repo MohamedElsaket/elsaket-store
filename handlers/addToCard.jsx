@@ -21,7 +21,7 @@ export default function AddToCard({
 
   const dispatch = useDispatch();
 
-  const image = `https://elsaket.great-site.net/backend/${product?.image?.[0]}`;
+  const image = `http://elsaket-store.atwebpages.com/backend/${product?.image?.[0]}`;
 
   const add = (e) => {
     if (!selectedColor || !selectedSize) {

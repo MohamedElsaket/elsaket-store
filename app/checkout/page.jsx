@@ -58,14 +58,11 @@ export default function CheckoutPage() {
     try {
       setIsLoading(true);
 
-      const res = await fetch(
-        "https://elsaket.great-site.net/backend/endpoints/auth.php?action=request_otp",
-        {
-          headers: { "Content-Type": "application/json" },
-          method: "POST",
-          body: JSON.stringify({ email }),
-        }
-      );
+      const res = await fetch("/api/auth.php?action=request_otp", {
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        body: JSON.stringify({ email }),
+      });
       const data = await res.json();
       // console.log(data);
 
@@ -86,18 +83,15 @@ export default function CheckoutPage() {
 
     const placeOrder = async () => {
       try {
-        const res = await fetch(
-          "https://elsaket.great-site.net/backend/endpoints/orders.php",
-          {
-            headers: { "Content-Type": "appplication/json" },
-            method: "POST",
-            body: JSON.stringify({
-              user_id: userId,
-              items: cartItems,
-              total_price: subtotal,
-            }),
-          }
-        );
+        const res = await fetch("/api/orders.php", {
+          headers: { "Content-Type": "appplication/json" },
+          method: "POST",
+          body: JSON.stringify({
+            user_id: userId,
+            items: cartItems,
+            total_price: subtotal,
+          }),
+        });
         // console.log(res);
 
         const data = await res.json();
@@ -309,7 +303,7 @@ export default function CheckoutPage() {
                         <div key={item.id} className="flex gap-3">
                           <img
                             src={
-                              `https://elsaket.great-site.net/backend/${item.image[0]}` ||
+                              `http://elsaket-store.atwebpages.com/backend/${item.image[0]}` ||
                               "/placeholder.svg"
                             }
                             alt={item.name}

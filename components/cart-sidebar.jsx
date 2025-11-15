@@ -85,7 +85,7 @@ export function CartSidebar({ isOpen, onClose }) {
                   >
                     <img
                       src={
-                        `https://elsaket.great-site.net/backend/${item.image[0]}` ||
+                        `http://elsaket-store.atwebpages.com/backend/${item.image[0]}` ||
                         "/placeholder.svg"
                       }
                       alt={item.name}

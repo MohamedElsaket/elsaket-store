@@ -10,9 +10,7 @@ export function CategoriesSection() {
 
   useEffect(() => {
     const getCategories = async () => {
-      const res = await fetch(
-        "https://elsaket.great-site.net/backend/endpoints/categories.php"
-      );
+      const res = await fetch("/api/categories.php");
       const data = await res.json();
       // console.log(data);
       setCategories(data);
@@ -74,7 +72,7 @@ export function CategoriesSection() {
                     <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/20">
                       {/* <Icon className="h-7 w-7 text-primary" /> */}
                       <img
-                        src={`https://elsaket.great-site.net/backend/${category.image}`}
+                        src={`http://elsaket-store.atwebpages.com/backend/${category.image}`}
                         alt="Category Image"
                         className="w-full h-full rounded-xl object-cover"
                       />

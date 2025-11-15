@@ -46,9 +46,7 @@ export default function ProductDetailPage() {
     // setProductVartiants(products?.variants?.[0]);
 
     async function getProductById() {
-      const res = await fetch(
-        `https://elsaket.great-site.net/backend/endpoints/products.php?product_id=${productId}`
-      );
+      const res = await fetch(`/api/products.php?product_id=${productId}`);
       const data = await res.json();
       // console.log(data);
       setProduct(data.product);
@@ -106,7 +104,7 @@ export default function ProductDetailPage() {
             <div className="relative aspect-square overflow-hidden rounded-xl border border-border bg-accent/20">
               <img
                 src={
-                  `https://elsaket.great-site.net/backend/${product?.image?.[selectedImage]}` ||
+                  `http://elsaket-store.atwebpages.com/backend/${product?.image?.[selectedImage]}` ||
                   "/placeholder.svg"
                 }
                 alt={product?.name}
@@ -133,7 +131,7 @@ export default function ProductDetailPage() {
                 >
                   <img
                     src={
-                      `https://elsaket.great-site.net/backend/${image}` ||
+                      `http://elsaket-store.atwebpages.com/backend/${image}` ||
                       "/placeholder.svg"
                     }
                     alt={`${product.name} ${index + 1}`}

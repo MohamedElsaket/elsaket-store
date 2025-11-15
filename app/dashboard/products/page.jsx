@@ -115,7 +115,7 @@ export default function page() {
       cell: ({ row }) => (
         <div className="relative lowercase w-10 h-10 rounded-md overflow-hidden group">
           <img
-            src={`https://elsaket.great-site.net/backend/${
+            src={`http://elsaket-store.atwebpages.com/backend/${
               row.getValue("image")[0]
             }`}
             alt="image"
@@ -259,14 +259,11 @@ export default function page() {
   // console.log(productId);
 
   async function handleDelete() {
-    const res = await fetch(
-      "https://elsaket.great-site.net/backend/endpoints/products.php",
-      {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: productId }),
-      }
-    );
+    const res = await fetch("/api/products.php", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: productId }),
+    });
     const data = await res.json();
     // console.log(data);
 
@@ -292,13 +289,10 @@ export default function page() {
     formData.append("image", file);
 
     try {
-      const res = await fetch(
-        "https://elsaket.great-site.net/backend/endpoints/upload_product_image.php",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const res = await fetch("/api/upload_product_image.php", {
+        method: "POST",
+        body: formData,
+      });
 
       const data = await res.json();
 

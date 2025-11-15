@@ -19,9 +19,7 @@ export default function CreateNewProductForm({ setShowForm }) {
 
   useEffect(() => {
     const getCategories = async () => {
-      const res = await fetch(
-        "https://elsaket.great-site.net/backend/endpoints/categories.php"
-      );
+      const res = await fetch("/api/categories.php");
       const data = await res.json();
       setCategories(data);
     };
@@ -56,21 +54,18 @@ export default function CreateNewProductForm({ setShowForm }) {
 
     try {
       // 1️⃣ Create the main product first
-      const res = await fetch(
-        "https://elsaket.great-site.net/backend/endpoints/products.php",
-        {
-          headers: { "Content-Type": "application/json" },
-          method: "POST",
-          body: JSON.stringify({
-            name,
-            description,
-            price,
-            quantity,
-            category_id: category,
-            badge,
-          }),
-        }
-      );
+      const res = await fetch("/api/products.php", {
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        body: JSON.stringify({
+          name,
+          description,
+          price,
+          quantity,
+          category_id: category,
+          badge,
+        }),
+      });
       const data = await res.json();
 
       if (data.status === true) {
@@ -83,19 +78,16 @@ export default function CreateNewProductForm({ setShowForm }) {
 
         // 2️⃣ Create all variants for this product
         for (const variant of variants) {
-          await fetch(
-            "https://elsaket.great-site.net/backend/endpoints/product_variants.php",
-            {
-              headers: { "Content-Type": "application/json" },
-              method: "POST",
-              body: JSON.stringify({
-                product_id,
-                size: variant.size.split(",").map((s) => s.trim()),
-                color: variant.color.split(",").map((c) => c.trim()),
-                stock_quantity: variant.stock_quantity,
-              }),
-            }
-          );
+          await fetch("/api/product_variants.php", {
+            headers: { "Content-Type": "application/json" },
+            method: "POST",
+            body: JSON.stringify({
+              product_id,
+              size: variant.size.split(",").map((s) => s.trim()),
+              color: variant.color.split(",").map((c) => c.trim()),
+              stock_quantity: variant.stock_quantity,
+            }),
+          });
         }
 
         toast.success("All Variants Created ✅");
