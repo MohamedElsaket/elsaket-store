@@ -4,7 +4,8 @@ const nextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "https://elsaket.great-site.net/backend/endpoints/:path*",
+        destination:
+          "http://elsaket-store.atwebpages.com/backend/endpoints/:path*",
       },
     ];
   },
