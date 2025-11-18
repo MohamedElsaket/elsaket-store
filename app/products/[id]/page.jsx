@@ -104,7 +104,7 @@ export default function ProductDetailPage() {
             <div className="relative aspect-square overflow-hidden rounded-xl border border-border bg-accent/20">
               <img
                 src={
-                  `http://elsaket-store.atwebpages.com/backend/uploads/${product?.image?.[selectedImage]}` ||
+                  `http://elsaket-store.atwebpages.com/backend/${product?.image?.[selectedImage]}` ||
                   "/placeholder.svg"
                 }
                 alt={product?.name}
@@ -131,7 +131,7 @@ export default function ProductDetailPage() {
                 >
                   <img
                     src={
-                      `http://elsaket-store.atwebpages.com/backend/uploads/${image}` ||
+                      `http://elsaket-store.atwebpages.com/backend/${image}` ||
                       "/placeholder.svg"
                     }
                     alt={`${product.name} ${index + 1}`}

@@ -7,9 +7,9 @@ export const getAllProducts = createAsyncThunk(
   async () => {
     try {
       const res = await fetch("/api/products.php");
-      console.log(res);
+      // console.log(res);
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
       return data;
     } catch (error) {
       throw new Error("Products Fetch Error: ", error);

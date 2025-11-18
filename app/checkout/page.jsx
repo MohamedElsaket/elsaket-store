@@ -303,7 +303,7 @@ export default function CheckoutPage() {
                         <div key={item.id} className="flex gap-3">
                           <img
                             src={
-                              `http://elsaket-store.atwebpages.com/backend/uploads/${item.image[0]}` ||
+                              `http://elsaket-store.atwebpages.com/backend/${item.image[0]}` ||
                               "/placeholder.svg"
                             }
                             alt={item.name}

@@ -72,7 +72,7 @@ export function CategoriesSection() {
                     <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/20">
                       {/* <Icon className="h-7 w-7 text-primary" /> */}
                       <img
-                        src={`http://elsaket-store.atwebpages.com/backend/uploads/${category.image}`}
+                        src={`http://elsaket-store.atwebpages.com/backend/${category.image}`}
                         alt="Category Image"
                         className="w-full h-full rounded-xl object-cover"
                       />
